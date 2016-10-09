@@ -30,4 +30,24 @@ export const css = `
 }
 `;
 
-export const example = JSON.stringify({ name: 'Agustin Mendez', id: 123131 }, null, 2);
+export const example = JSON.stringify({
+  "name": "ebnf-highlighter",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://menduz.com/ebnf-highlighter",
+  "devDependencies": {
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "ebnf": "^1.2.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "(rm -fr docs || true) && react-scripts build && mv build docs",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+  , null, 2);

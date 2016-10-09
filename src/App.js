@@ -63,7 +63,7 @@ class App extends Component {
           <ContentEditable
             tagName='pre'
             className="code"
-            html={this.state.text}
+            html={this.state.text || this.state.selectedExample.example}
             disabled={false}
             onChange={this.handleChangeExample.bind(this) }
             />
@@ -87,6 +87,7 @@ class App extends Component {
   }
 
   hoverArea(start, end){
+    if(start == end) return;
     let a = this.state.selectedExample.example;
     this.setState({ text: [a.slice(0, start), '<b class="hovered">', a.slice(start, end), '</b>', a.slice(end)].join('') });
   }
