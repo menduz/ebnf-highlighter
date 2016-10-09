@@ -72,7 +72,7 @@ class App extends Component {
           <span>AST</span>
           <pre>{printAST(this.state.ast, 1, this) }</pre>
         </div>
-        <div className="">
+        <div className="" style={{display: 'none'}}>
           <span>Css</span>
           <ContentEditable
             tagName='pre'
