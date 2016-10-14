@@ -1,7 +1,7 @@
 export const name = "Brainfuck";
 export const grammar = `
-program  ::= sentence*
-sentence ::= WS* (command | loop) WS* { fragment=true }
+program  ::= sentence* { ws=implicit }
+sentence ::= (command | loop) { fragment=true, ws=implicit }
 command  ::= increment_ptr | decrement_ptr | increment_data | decrement_data | write_data | read_data { fragment=true }
 loop     ::= "[" sentence* "]" { pin=1 }
 

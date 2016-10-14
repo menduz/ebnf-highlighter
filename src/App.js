@@ -136,7 +136,14 @@ function printAST(astNode, level = 1, component) {
   if (!astNode) {
     return <b>AST Could not be parsed, please review your code</b>;
   }
-  return <div onMouseEnter={() => component.hoverArea(astNode.start, astNode.end) } className='ast-node'>
+
+  const click = (e) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    component.hoverArea(astNode.start, astNode.end);
+  }
+
+  return <div onMouseEnter={click} onClick={click} className='ast-node'>
     <b style={{color: astNode.type == 'SyntaxError' ? 'red':'black'}}>{astNode.type}</b>
     {
       (!astNode.children || astNode.children.length == 0 ? ' Text=' + astNode.text.replace(/(\n|\r)/g, ' ') : astNode.children.map(x => printAST(x, level + 1, component)))
