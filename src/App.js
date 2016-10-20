@@ -190,7 +190,13 @@ class App extends Component {
     this.setState({ selectedExample: this.state.selectedExample });
   }
 
-  state = { selectedExample: examples[0], parser: (parser = createParser(examples[0].grammar, { keepUpperRules })), parserOk: true };
+  state = { selectedExample: examples[0], parser: (() => {
+    try {
+      return (parser = createParser(examples[0].grammar, { keepUpperRules }))
+    } catch(e) {
+    
+    }
+  })(), parserOk: true };
 
   componentDidMount() {
     try {
