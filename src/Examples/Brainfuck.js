@@ -3,7 +3,7 @@ export const grammar = `
 program  ::= sentence* { ws=implicit }
 sentence ::= (command | loop) { fragment=true, ws=implicit }
 command  ::= increment_ptr | decrement_ptr | increment_data | decrement_data | write_data | read_data { fragment=true }
-loop     ::= "[" sentence* "]" { pin=1 }
+loop     ::= "[" sentence* "]" { pin=1, ws=implicit }
 
 increment_ptr ::= ">"
 decrement_ptr ::= "<"

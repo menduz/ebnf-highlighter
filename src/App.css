@@ -1,21 +1,67 @@
 pre {
-  border: 1px solid #ddd;
-  margin: 5px;
+  border: 1px solid lightgrey;
+  margin: 0;
   overflow: scroll;
-  height: 40vh;
-  font-size: 11px;
+  position: absolute;
+  top: 21px;
+  left: 4px;
+  right: 0;
+  bottom: 0;
 }
 
 .column {
-  width: 50%;
+  width: 33.3%;
+  box-sizing: border-box;
   float: left;
+
+  padding: 5px;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  overflow: hidden;
+  position: relative;
 }
 
+.header {
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  height: 59px;
+  border-bottom: 1px solid lightgrey;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  background: #444;
+  color: white;
+  padding: 20px;
+}
+
+.header a {
+  font-weight: bold;
+  color: white!important;
+}
+
+.react-monaco-editor-container {
+  border: 1px solid lightgrey;
+}
 
 .ast-node:hover, .hovered {
-  background-color: rgba(0, 64, 220, 0.2);
-  box-shadow: 0 0 1px white
+  background-color: rgba(103, 136, 204, 0.3);
+  box-shadow: 0 0 0px 1px #000;
+  border-radius: 3px;
 }
 .ast-node > .ast-node {
   margin-left: 15px;
+}
+
+
+.SyntaxError {
+  background: rgba(255,0,0,0.3);
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
