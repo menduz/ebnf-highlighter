@@ -1,6 +1,7 @@
 import * as JSON from './JSON'
 import * as JSONRecovery from './JSONRecovery'
 import * as Brainfuck from './Brainfuck'
+import * as Expressions from './Expressions'
 
 let LAST_USED = {
   name: '',
@@ -12,5 +13,6 @@ export default [
   LAST_USED,
   JSON,
   JSONRecovery,
-  Brainfuck
+  Brainfuck,
+  Expressions
 ]
