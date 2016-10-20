@@ -5,7 +5,7 @@ Document
     ::= (WS* Expression WS* ';'?)* EOF {pin=1, ws=implicit}
 
 Expression 
-    ::= (ParenthesisExpression | UnaryExpression | BinaryExpression | SingleExpression) {pin=1, ws=implicit}
+    ::= (UnaryExpression | BinaryExpression | ParenthesisExpression | SingleExpression) {pin=1, ws=implicit}
 UnaryExpression         
     ::= WS* UnaryOperator WS+ Expression {pin=2}
 BinaryExpression        
@@ -30,16 +30,16 @@ String      ::= '"' CHAR* '"'
 
 Comment     ::= '#' (![#x0A#x0D] [#x00-#xFFFF])* EOL
 
-CHAR        ::= (!'"' [#x20-#xFFFF] | '\"')
+CHAR        ::= (!'"' [#x20-#xFFFF] | '"')
 WS          ::= Comment | [#x20#x09#x0A#x0D]+ {fragment=true}
 EOL         ::= [#x0A#x0D]+|EOF
 /* EOF */
+
 `;
 
 export const css = ``;
 
 export const example = `
-# https://github.com/mulesoft/data-weave/issues/68
 
   sizeOf a
 # ^^^^^^^^ unary
@@ -58,4 +58,10 @@ export const example = `
 #                    ^^^^^^^^^^^^^^^^^^^ binary
 #                          ^^^^^^^^^^^^^ binary
 #                               ^^^^^^^^ unary
+  (sizeOf payload map ($.a + 10)) + sizeOf b
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ binary
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^            unary
+#         ^^^^^^^^^^^^^^^^^^^^^^^            binary
+#                     ^^^^^^^^^^             binary
+#                                   ^^^^^^^^ unary
 `;
