@@ -11,7 +11,7 @@ let parser = null;
 const keepUpperRules = false;
 
 function createParser(grammar) {
-  return new ebnf.Grammars.Custom.Parser(grammar, { keepUpperRules });
+  return new ebnf.Grammars.Custom.Parser(grammar + '\n', { keepUpperRules });
 }
 
 let decorations = [];
@@ -55,7 +55,7 @@ class App extends Component {
   parse() {
     if (this.state.parser) {
       try {
-        let ast = this.state.parser.getAST(this.state.selectedExample.example);
+        let ast = this.state.parser.getAST(this.state.selectedExample.example + '\n');
 
         if (ast.rest && ast.rest.length) {
           ast.children.push({
@@ -236,7 +236,7 @@ class App extends Component {
           `}
         </style>
         <div className="header">
-          POC of <a href="https://github.com/menduz/node-ebnf">node-ebnf</a>.Please select an example:
+          POC of <a href="https://github.com/lys-lang/node-ebnf">node-ebnf</a>. Please select an example:
           <select onChange={this.selectExample.bind(this) }>
             {
               examples.map((e, i) =>

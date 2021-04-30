@@ -50,7 +50,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
-    "ebnf": "^1.2.0",
+    "ebnf": "^1.9.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-monaco-editor": "^0.6.0"
